@@ -16,5 +16,5 @@ const movieSchema = new mongoose.Schema({
 });
 
 const Movie = mongoose.model('Movie',movieSchema);//a class Moview is created which can be instanced and added to the database.
-const amadeus = new Movie({title:'Amadeus',year:1986,score:9.2,rating:'R'});
+const amadeus = new Movie({title:'Amadeus',year:1988,score:9.2,rating:'R'});
 
