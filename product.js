@@ -41,6 +41,17 @@ const productSchema = new mongoose.Schema({
     }
 });
 
+productSchema.methods.greet = function() {
+    console.log("HEllo!there");
+};
+
+const findProduct  = async  () => {
+    const foundProduct = await Product.findOne({name:"Bike Helmet"});
+    foundProduct.greet();
+}
+
+findProduct();
+
 const Product = mongoose.model('Product', productSchema);
 
 // const bike = new Product({ name: 'Mountain Bike', price: "Hello" });//the validation wwe check if it can change the value to desired format specified int he schema
@@ -66,7 +77,7 @@ const Product = mongoose.model('Product', productSchema);
 //         console.log(err);
 //     })
 
-const bike = new Product({name:"Tire Pump",price:19.9,categories:["cycling"],size:'XL'});
+const bike = new Product({name:"Tire Pump",price:19.9,categories:["cycling"],size:'L'});
 
 bike.save()
     .then(data => {
@@ -75,3 +86,4 @@ bike.save()
     .catch(err => {
         console.log(err);
     })
+
